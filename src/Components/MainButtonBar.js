@@ -10,7 +10,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const MainButtonBar = (props) => {
 
-    const menuToggle = props.collapsToggle ?  <ExpandLessIcon /> : <ExpandMoreIcon />
+    const menuToggle = props.collapseToggle ? <ExpandLessIcon /> : <ExpandMoreIcon />
 
     return (
             <Grid

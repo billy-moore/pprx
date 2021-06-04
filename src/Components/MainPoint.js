@@ -9,10 +9,10 @@ import CollapseDisplay from './CollapseDisplay'
 const MainPoint = (props) => {
     const subPoints = []
     const [noEdit,] = useState( false )
-    const [contentVisible, setContentVisible] = useState(true)
+    const [contentVisible, setContentVisible] = useState(false)
 
     const contentVisibleToggleHandler = () => {
-        setContentVisible(!contentVisible)
+        setContentVisible((isVisible) => !isVisible)
     }
 
     const addSubHandler = () => {
