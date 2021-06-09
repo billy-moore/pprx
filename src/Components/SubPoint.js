@@ -18,21 +18,27 @@ const SubPoint = (props) => {
         
     }
 
+    const addContentHandler = (e, d) => {
+        // fetch('https://pprx-ea62f-default-rtdb.firebaseio.com/paper.json', {
+        //     method: 'POST',
+        //     body: JSON.stringify(props.content[d]),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        console.log(e, d)
+        console.log(props.content[e])
+    }
+
     let SubContent = <CollapseDisplay contNumber={props.content.length} main={false} />
     
     const mySubPoint = props.content.map((quote, quoteIndex) => (
-
-            <Grid 
-                item 
-                xs={12} 
-                key = {quoteIndex}
-                >
                     <Quote
+                        key={quoteIndex}
                         label={quote}
                         placeholder={quote}
                         edit={props.edit}
                         />
-            </Grid>
         ))
 
         if (contentVisible) {
@@ -47,10 +53,8 @@ const SubPoint = (props) => {
                     title={props.title}
                     rowsMax={ 6 }
                     label = {props.label}
-                    // value={  }
                     placeholder = { props.placeholder }
                     disabled = {props.edit}
-                    //onChange={props.onMainChange}
                     style={ { width: '95%', marginBottom: '1rem' } }
                     InputProps={{
                         startAdornment: (
@@ -61,13 +65,7 @@ const SubPoint = (props) => {
                     }}
                     draggable
                     />
-                    
-                    <Grid 
-                        container 
-                        spacing={2}
-                        >
-                        {SubContent}
-                    </Grid>
+                    {SubContent}
 
                     <Grid
                         item
@@ -78,6 +76,7 @@ const SubPoint = (props) => {
                             collapseMenu={contentVisibleToggleHandler}
                             collapsToggle={!contentVisible}
                             disable={Object.keys(props.content) === 0 ? true : false}
+                            addOption={ (e) => addContentHandler(props.main, props.subIndex) }
                         />
                 </Grid>
             </Paper>

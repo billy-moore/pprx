@@ -16,7 +16,7 @@ const MainPoint = (props) => {
     }
 
     const addSubHandler = () => {
-        fetch('https://pprx-ea62f-default-rtdb.firebaseio.com/paper.json')
+        console.log()
     }
 
     for (const key in props.content){
@@ -40,6 +40,8 @@ const MainPoint = (props) => {
                     edit={noEdit}
                     label={`Subpoint ${subIndex + 1}`}
                     content={subPoint.content}
+                    main={props.context}
+                    subIndex={subIndex}
                     /> 
         </Grid>
     ))

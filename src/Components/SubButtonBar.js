@@ -28,6 +28,7 @@ const SubButtonBar = (props) => {
                     </Button>
 
                     <Button
+                        onClick={props.addOption}
                     >
                         <AddIcon />
                     </Button>
